@@ -1,0 +1,12 @@
+import java.io.IOException;
+
+public class TrafficMonitor {
+	public static void main(String[] args) throws IOException, InterruptedException{
+		String iface = "eth0";
+		if (args.length > 0){
+			iface = args[0];	
+		}
+		WebSocketFlowServer socket = new WebSocketFlowServer(8888, iface);
+		socket.start();
+	}
+}
