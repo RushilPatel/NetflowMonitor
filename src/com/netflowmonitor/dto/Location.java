@@ -1,3 +1,4 @@
+package com.netflowmonitor.dto;
 
 public class Location {
 	private String ip;

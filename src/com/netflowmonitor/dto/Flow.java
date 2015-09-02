@@ -1,3 +1,5 @@
+package com.netflowmonitor.dto;
+
 public class Flow {
 
 	private String date;
@@ -186,10 +188,10 @@ public class Flow {
 		return bytes;
 	}
 
-	public String toString() {
+	public String toJson() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("{");
-		sb.append("\"date\" : \"" + this.date + " " + this.time + "\",");
+		sb.append("\"date\" : \"" + this.getDate() + " " + this.getTime() + "\",");
 		sb.append("\"protocol\" : \"" + this.getProtocol() + "\",");
 		sb.append("\"srcip\" : \"" + this.getSrcip() + "\",");
 		sb.append("\"dstip\" : \"" + this.getDstip() + "\",");
@@ -206,7 +208,7 @@ public class Flow {
 		sb.append("\"scountryname\" : \"" + this.getScountryname() + "\",");
 		sb.append("\"dcity\" : \"" + this.getDcity() + "\",");
 
-		sb.append("\"info\" : \"" + this.getScountryname() + "\"");
+		sb.append("\"info\" : \"" + this.getInfo() + "\"");
 		sb.append("}");
 		return sb.toString();
 	}

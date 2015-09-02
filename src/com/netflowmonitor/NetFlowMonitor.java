@@ -1,6 +1,8 @@
+package com.netflowmonitor;
+
 import java.io.IOException;
 
-public class TrafficMonitor {
+public class NetFlowMonitor {
 	public static void main(String[] args) throws IOException, InterruptedException{
 		String iface = "eth0";
 		if (args.length > 0){

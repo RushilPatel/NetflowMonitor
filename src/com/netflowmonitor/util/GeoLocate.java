@@ -1,3 +1,5 @@
+package com.netflowmonitor.util;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -5,15 +7,13 @@ import java.net.URL;
 import java.util.HashMap;
 
 import com.eclipsesource.json.JsonObject;
+import com.netflowmonitor.dto.Location;
 
 public class GeoLocate
 {
-	private HashMap<String, Location> locationMap;
-	public GeoLocate(){
-		locationMap = new HashMap<String, Location>();
-	}
-	
-	public Location getLocation(String ip){
+	private static HashMap<String, Location> locationMap = new HashMap<String, Location>();
+
+	public static Location getLocation(String ip){
 		Location location = locationMap.get(ip);
 		if(location!= null){
 			return location;
@@ -39,7 +39,7 @@ public class GeoLocate
 		}
 	}
 	
-	private Location parseLocation(String data){
+	private static Location parseLocation(String data){
 
 		Location location = new Location();
 		JsonObject jsonObject = JsonObject.readFrom(data);

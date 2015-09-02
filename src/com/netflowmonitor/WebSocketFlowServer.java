@@ -1,7 +1,12 @@
+package com.netflowmonitor;
+
+import com.netflowmonitor.reader.NetFlowFileReader;
+import com.netflowmonitor.reader.TSharkReader;
 import org.java_websocket.WebSocket;
 import org.java_websocket.handshake.ClientHandshake;
 import org.java_websocket.server.WebSocketServer;
 
+import java.io.File;
 import java.net.InetSocketAddress;
 import java.util.*;
 
@@ -21,7 +26,7 @@ public class WebSocketFlowServer extends WebSocketServer
     {
         conns.add(conn);
         if(conns.size() == 1){
-        	reader = new Thread(new FlowReader(this, iface));
+        	reader = new Thread(new NetFlowFileReader(this, new File("/home/rushil/Downloads/test.txt")));
             reader.start();
         }
         System.out.println("New connection from " + conn.getRemoteSocketAddress().getAddress().getHostAddress());
